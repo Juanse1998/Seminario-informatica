@@ -172,7 +172,6 @@ VALUES
 
 
 
--- Reemplaza el número 1 por el id de la propiedad que quieras ver
 SELECT 
     p.id_propiedad,
     p.direccion,
@@ -186,7 +185,6 @@ JOIN Cliente c ON p.id_propietario = c.id_cliente
 WHERE p.id_propiedad = 1;
 
 
--- Reemplaza 1 por el id del contrato que quieras ver
 SELECT 
     co.id_contrato,
     co.tipo AS tipo_contrato,
