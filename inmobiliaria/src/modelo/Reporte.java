@@ -3,18 +3,15 @@ package modelo;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-/**
- * Clase Reporte - Representa un reporte generado en el sistema
- * Mapea a la tabla Reporte de la base de datos
- */
+
 public class Reporte {
-    // ENCAPSULAMIENTO: atributos privados
+    
     private int idReporte;
     private LocalDateTime fechaGenerado;
-    private String tipo; // 'propiedades', 'contratos', 'pagos', 'clientes'
-    private int generadoPor; // FK a Usuarios (puede ser null)
+    private String tipo; 
+    private int generadoPor; 
     
-    // Constructor por defecto
+    
     public Reporte() {
         this.idReporte = 0;
         this.fechaGenerado = LocalDateTime.now();
@@ -22,7 +19,7 @@ public class Reporte {
         this.generadoPor = 0;
     }
     
-    // Constructor con parámetros completo
+    
     public Reporte(int idReporte, LocalDateTime fechaGenerado, String tipo, int generadoPor) {
         this.idReporte = idReporte;
         this.fechaGenerado = fechaGenerado;
@@ -30,14 +27,14 @@ public class Reporte {
         this.generadoPor = generadoPor;
     }
     
-    // Constructor sin ID (para inserción en BD)
+    
     public Reporte(LocalDateTime fechaGenerado, String tipo, int generadoPor) {
         this.fechaGenerado = fechaGenerado;
         this.tipo = tipo;
         this.generadoPor = generadoPor;
     }
     
-    // Getters y Setters - ENCAPSULAMIENTO
+    
     public int getIdReporte() {
         return idReporte;
     }
@@ -70,7 +67,7 @@ public class Reporte {
         this.generadoPor = generadoPor;
     }
     
-    // Método para mostrar información del reporte
+    
     public String mostrarInfo() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
         return String.format(

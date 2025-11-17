@@ -1,17 +1,14 @@
 package modelo;
 
-/**
- * Clase PropiedadComercial - Demuestra HERENCIA
- * Extiende de Propiedad y agrega atributos específicos para propiedades comerciales
- */
+
 public class PropiedadComercial extends Propiedad {
-    // Atributos específicos de propiedades comerciales
+    
     private double metrosCuadrados;
     private String zonaComercial;
     private boolean apto_gastronomia;
     private int capacidadPersonas;
     
-    // Constructor por defecto
+    
     public PropiedadComercial() {
         super();
         this.metrosCuadrados = 0.0;
@@ -20,7 +17,7 @@ public class PropiedadComercial extends Propiedad {
         this.capacidadPersonas = 0;
     }
     
-    // Constructor con parámetros completo (con ID)
+    
     public PropiedadComercial(int idPropiedad, String direccion, String tipo,
                              double precio, String estado, String descripcion, int idPropietario,
                              double metrosCuadrados, String zonaComercial,
@@ -32,7 +29,7 @@ public class PropiedadComercial extends Propiedad {
         this.capacidadPersonas = capacidadPersonas;
     }
     
-    // Constructor sin ID (para inserción en BD)
+    
     public PropiedadComercial(String direccion, String tipo, double precio, String estado,
                              String descripcion, int idPropietario,
                              double metrosCuadrados, String zonaComercial,
@@ -44,7 +41,7 @@ public class PropiedadComercial extends Propiedad {
         this.capacidadPersonas = capacidadPersonas;
     }
     
-    // Getters y Setters
+    
     public double getMetrosCuadrados() {
         return metrosCuadrados;
     }
@@ -77,10 +74,7 @@ public class PropiedadComercial extends Propiedad {
         this.capacidadPersonas = capacidadPersonas;
     }
     
-    /**
-     * POLIMORFISMO: Sobrescribe el método abstracto de la clase padre
-     * Proporciona información específica de propiedades comerciales
-     */
+    
     @Override
     public String mostrarInfo() {
         return String.format(

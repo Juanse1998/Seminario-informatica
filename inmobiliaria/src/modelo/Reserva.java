@@ -3,19 +3,17 @@ package modelo;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-/**
- * Clase Reserva - Representa una reserva o contrato de propiedad
- */
+
 public class Reserva {
-    // ENCAPSULAMIENTO: atributos privados
+    
     private int id;
     private Propiedad propiedad;
     private Cliente cliente;
     private LocalDate fecha;
     private double monto;
-    private String estado; // "Activa", "Cancelada", "Finalizada"
+    private String estado; 
     
-    // Constructor por defecto
+    
     public Reserva() {
         this.id = 0;
         this.propiedad = null;
@@ -25,7 +23,7 @@ public class Reserva {
         this.estado = "Activa";
     }
     
-    // Constructor con parámetros
+    
     public Reserva(int id, Propiedad propiedad, Cliente cliente, 
                    LocalDate fecha, double monto, String estado) {
         this.id = id;
@@ -36,7 +34,7 @@ public class Reserva {
         this.estado = estado;
     }
     
-    // Getters y Setters - ENCAPSULAMIENTO
+    
     public int getId() {
         return id;
     }
@@ -85,7 +83,7 @@ public class Reserva {
         this.estado = estado;
     }
     
-    // Método para mostrar información de la reserva
+    
     public String mostrarInfo() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         return String.format(

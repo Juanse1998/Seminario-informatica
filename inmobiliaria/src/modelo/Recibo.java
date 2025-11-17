@@ -3,18 +3,15 @@ package modelo;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-/**
- * Clase Recibo - Representa un recibo emitido por un pago
- * Mapea a la tabla Recibo de la base de datos
- */
+
 public class Recibo {
-    // ENCAPSULAMIENTO: atributos privados
-    private int idRecibo;
-    private int idPago; // FK a Pago
-    private LocalDate fechaEmision;
-    private String formato; // 'Digital', 'Impreso'
     
-    // Constructor por defecto
+    private int idRecibo;
+    private int idPago; 
+    private LocalDate fechaEmision;
+    private String formato; 
+    
+    
     public Recibo() {
         this.idRecibo = 0;
         this.idPago = 0;
@@ -22,7 +19,7 @@ public class Recibo {
         this.formato = "Digital";
     }
     
-    // Constructor con parámetros completo
+    
     public Recibo(int idRecibo, int idPago, LocalDate fechaEmision, String formato) {
         this.idRecibo = idRecibo;
         this.idPago = idPago;
@@ -30,14 +27,14 @@ public class Recibo {
         this.formato = formato;
     }
     
-    // Constructor sin ID (para inserción en BD)
+    
     public Recibo(int idPago, LocalDate fechaEmision, String formato) {
         this.idPago = idPago;
         this.fechaEmision = fechaEmision;
         this.formato = formato;
     }
     
-    // Getters y Setters - ENCAPSULAMIENTO
+    
     public int getIdRecibo() {
         return idRecibo;
     }
@@ -70,7 +67,7 @@ public class Recibo {
         this.formato = formato;
     }
     
-    // Método para mostrar información del recibo
+    
     public String mostrarInfo() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         return String.format(

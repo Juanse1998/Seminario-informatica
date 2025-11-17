@@ -1,12 +1,8 @@
 package modelo;
 
-/**
- * Clase Cliente - Representa un cliente de la inmobiliaria
- * Mapea a la tabla Cliente de la base de datos
- * Puede ser propietario, inquilino o ambos
- */
+
 public class Cliente {
-    // ENCAPSULAMIENTO: atributos privados
+    
     private int idCliente;
     private String nombre;
     private String apellido;
@@ -14,9 +10,9 @@ public class Cliente {
     private String telefono;
     private String email;
     private String direccion;
-    private String tipo; // "propietario", "inquilino", "ambos"
+    private String tipo; 
     
-    // Constructor por defecto
+    
     public Cliente() {
         this.idCliente = 0;
         this.nombre = "";
@@ -28,7 +24,7 @@ public class Cliente {
         this.tipo = "inquilino";
     }
     
-    // Constructor con parámetros completo
+    
     public Cliente(int idCliente, String nombre, String apellido, String dni,
                    String telefono, String email, String direccion, String tipo) {
         this.idCliente = idCliente;
@@ -41,7 +37,7 @@ public class Cliente {
         this.tipo = tipo;
     }
     
-    // Constructor sin ID (para inserción en BD)
+    
     public Cliente(String nombre, String apellido, String dni,
                    String telefono, String email, String direccion, String tipo) {
         this.nombre = nombre;
@@ -53,7 +49,7 @@ public class Cliente {
         this.tipo = tipo;
     }
     
-    // Getters y Setters - ENCAPSULAMIENTO
+    
     public int getIdCliente() {
         return idCliente;
     }
@@ -62,7 +58,7 @@ public class Cliente {
         this.idCliente = idCliente;
     }
     
-    // Mantener compatibilidad con código existente
+    
     public int getId() {
         return idCliente;
     }
@@ -127,7 +123,7 @@ public class Cliente {
         this.tipo = tipo;
     }
     
-    // Mantener compatibilidad con código existente
+    
     public String getTipoCliente() {
         return tipo;
     }
@@ -136,12 +132,12 @@ public class Cliente {
         this.tipo = tipoCliente;
     }
     
-    // Método para obtener el nombre completo
+    
     public String getNombreCompleto() {
         return nombre + " " + apellido;
     }
     
-    // Método para mostrar información del cliente
+    
     public String mostrarInfo() {
         return String.format(
             "=== CLIENTE ===\n" +

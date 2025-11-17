@@ -3,23 +3,20 @@ package modelo;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-/**
- * Clase Contrato - Representa un contrato de alquiler o venta
- * Mapea a la tabla Contrato de la base de datos
- */
+
 public class Contrato {
-    // ENCAPSULAMIENTO: atributos privados
+    
     private int idContrato;
-    private String tipo; // 'alquiler', 'venta'
+    private String tipo; 
     private LocalDate fechaInicio;
     private LocalDate fechaFin;
     private double monto;
-    private int idPropiedad; // FK a Propiedad
-    private int idInquilino; // FK a Cliente (puede ser null)
-    private int idPropietario; // FK a Cliente
-    private int idUsuario; // FK a Usuarios (quien generó el contrato)
+    private int idPropiedad; 
+    private int idInquilino; 
+    private int idPropietario; 
+    private int idUsuario; 
     
-    // Constructor por defecto
+    
     public Contrato() {
         this.idContrato = 0;
         this.tipo = "alquiler";
@@ -32,7 +29,7 @@ public class Contrato {
         this.idUsuario = 0;
     }
     
-    // Constructor con parámetros completo
+    
     public Contrato(int idContrato, String tipo, LocalDate fechaInicio, LocalDate fechaFin,
                    double monto, int idPropiedad, int idInquilino, int idPropietario, int idUsuario) {
         this.idContrato = idContrato;
@@ -46,7 +43,7 @@ public class Contrato {
         this.idUsuario = idUsuario;
     }
     
-    // Constructor sin ID (para inserción en BD)
+    
     public Contrato(String tipo, LocalDate fechaInicio, LocalDate fechaFin,
                    double monto, int idPropiedad, int idInquilino, int idPropietario, int idUsuario) {
         this.tipo = tipo;
@@ -59,7 +56,7 @@ public class Contrato {
         this.idUsuario = idUsuario;
     }
     
-    // Getters y Setters - ENCAPSULAMIENTO
+    
     public int getIdContrato() {
         return idContrato;
     }
@@ -132,7 +129,7 @@ public class Contrato {
         this.idUsuario = idUsuario;
     }
     
-    // Método para mostrar información del contrato
+    
     public String mostrarInfo() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         return String.format(

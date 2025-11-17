@@ -1,17 +1,14 @@
 package modelo;
 
-/**
- * Clase PropiedadResidencial - Demuestra HERENCIA
- * Extiende de Propiedad y agrega atributos específicos para propiedades residenciales
- */
+
 public class PropiedadResidencial extends Propiedad {
-    // Atributos específicos de propiedades residenciales
+    
     private int habitaciones;
     private int baños;
     private boolean garage;
     private double metrosCuadrados;
     
-    // Constructor por defecto
+    
     public PropiedadResidencial() {
         super();
         this.habitaciones = 0;
@@ -20,7 +17,7 @@ public class PropiedadResidencial extends Propiedad {
         this.metrosCuadrados = 0.0;
     }
     
-    // Constructor con parámetros completo (con ID)
+    
     public PropiedadResidencial(int idPropiedad, String direccion, String tipo,
                                double precio, String estado, String descripcion, int idPropietario,
                                int habitaciones, int baños, boolean garage, double metrosCuadrados) {
@@ -31,7 +28,7 @@ public class PropiedadResidencial extends Propiedad {
         this.metrosCuadrados = metrosCuadrados;
     }
     
-    // Constructor sin ID (para inserción en BD)
+    
     public PropiedadResidencial(String direccion, String tipo, double precio, String estado,
                                String descripcion, int idPropietario,
                                int habitaciones, int baños, boolean garage, double metrosCuadrados) {
@@ -42,7 +39,7 @@ public class PropiedadResidencial extends Propiedad {
         this.metrosCuadrados = metrosCuadrados;
     }
     
-    // Getters y Setters
+    
     public int getHabitaciones() {
         return habitaciones;
     }
@@ -75,10 +72,7 @@ public class PropiedadResidencial extends Propiedad {
         this.metrosCuadrados = metrosCuadrados;
     }
     
-    /**
-     * POLIMORFISMO: Sobrescribe el método abstracto de la clase padre
-     * Proporciona información específica de propiedades residenciales
-     */
+    
     @Override
     public String mostrarInfo() {
         return String.format(

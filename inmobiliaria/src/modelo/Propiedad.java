@@ -1,21 +1,17 @@
 package modelo;
 
-/**
- * Clase base abstracta Propiedad - Demuestra ABSTRACCIÓN
- * Representa una propiedad genérica en el sistema inmobiliario
- * Mapea a la tabla Propiedad de la base de datos
- */
+
 public abstract class Propiedad {
-    // ENCAPSULAMIENTO: atributos privados
+    
     private int idPropiedad;
     private String direccion;
-    private String tipo; // 'casa', 'departamento', 'local', 'terreno'
+    private String tipo; 
     private double precio;
-    private String estado; // 'disponible', 'vendida', 'alquilada', 'reservada'
+    private String estado; 
     private String descripcion;
-    private int idPropietario; // FK a Cliente
+    private int idPropietario; 
     
-    // Constructor por defecto
+    
     public Propiedad() {
         this.idPropiedad = 0;
         this.direccion = "";
@@ -26,7 +22,7 @@ public abstract class Propiedad {
         this.idPropietario = 0;
     }
     
-    // Constructor con parámetros completo
+    
     public Propiedad(int idPropiedad, String direccion, String tipo, 
                      double precio, String estado, String descripcion, int idPropietario) {
         this.idPropiedad = idPropiedad;
@@ -38,7 +34,7 @@ public abstract class Propiedad {
         this.idPropietario = idPropietario;
     }
     
-    // Constructor sin ID (para inserción en BD)
+    
     public Propiedad(String direccion, String tipo, double precio, 
                      String estado, String descripcion, int idPropietario) {
         this.direccion = direccion;
@@ -49,7 +45,7 @@ public abstract class Propiedad {
         this.idPropietario = idPropietario;
     }
     
-    // Getters y Setters - ENCAPSULAMIENTO
+    
     public int getIdPropiedad() {
         return idPropiedad;
     }
@@ -58,7 +54,7 @@ public abstract class Propiedad {
         this.idPropiedad = idPropiedad;
     }
     
-    // Mantener compatibilidad con código existente
+    
     public int getId() {
         return idPropiedad;
     }
@@ -115,30 +111,30 @@ public abstract class Propiedad {
         this.idPropietario = idPropietario;
     }
     
-    // Métodos de compatibilidad para mantener código existente funcionando
+    
     public String getOperacion() {
-        // Inferir operación del estado
+        
         if (estado.equals("alquilada")) return "Alquiler";
         if (estado.equals("vendida")) return "Venta";
-        return "Venta"; // Por defecto
+        return "Venta"; 
     }
     
     public void setOperacion(String operacion) {
-        // No hacer nada, la operación se maneja con el tipo de contrato
+        
     }
     
     public String getAgente() {
-        return ""; // Ya no se usa, se maneja con id_usuario en Contrato
+        return ""; 
     }
     
     public void setAgente(String agente) {
-        // No hacer nada
+        
     }
     
-    // Método abstracto - POLIMORFISMO: cada subclase lo implementará de forma diferente
+    
     public abstract String mostrarInfo();
     
-    // Método para obtener información básica
+    
     public String getInfoBasica() {
         return String.format("ID: %d | %s | %s | $%.2f | %s", 
                            idPropiedad, direccion, tipo, precio, estado);

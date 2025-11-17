@@ -3,20 +3,17 @@ package modelo;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-/**
- * Clase Pago - Representa un pago realizado en un contrato
- * Mapea a la tabla Pago de la base de datos
- */
+
 public class Pago {
-    // ENCAPSULAMIENTO: atributos privados
+    
     private int idPago;
-    private int idContrato; // FK a Contrato
+    private int idContrato; 
     private LocalDate fechaPago;
     private double monto;
-    private String metodoPago; // 'efectivo', 'transferencia', 'tarjeta'
+    private String metodoPago; 
     private String observaciones;
     
-    // Constructor por defecto
+    
     public Pago() {
         this.idPago = 0;
         this.idContrato = 0;
@@ -26,7 +23,7 @@ public class Pago {
         this.observaciones = "";
     }
     
-    // Constructor con parámetros completo
+    
     public Pago(int idPago, int idContrato, LocalDate fechaPago, double monto,
                String metodoPago, String observaciones) {
         this.idPago = idPago;
@@ -37,7 +34,7 @@ public class Pago {
         this.observaciones = observaciones;
     }
     
-    // Constructor sin ID (para inserción en BD)
+    
     public Pago(int idContrato, LocalDate fechaPago, double monto,
                String metodoPago, String observaciones) {
         this.idContrato = idContrato;
@@ -47,7 +44,7 @@ public class Pago {
         this.observaciones = observaciones;
     }
     
-    // Getters y Setters - ENCAPSULAMIENTO
+    
     public int getIdPago() {
         return idPago;
     }
@@ -96,7 +93,7 @@ public class Pago {
         this.observaciones = observaciones;
     }
     
-    // Método para mostrar información del pago
+    
     public String mostrarInfo() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         return String.format(

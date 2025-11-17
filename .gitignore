@@ -1,0 +1,12 @@
+# macOS
+.DS_Store
+
+# IntelliJ / IDEA
+.idea/
+out/
+
+# Archivos compilados
+*.class
+
+# Librerías descargadas
+inmobiliaria/lib/

@@ -10,9 +10,7 @@ import java.awt.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-/**
- * Panel de gestión de reservas
- */
+
 public class PanelReservas extends JPanel {
     private Inmobiliaria inmobiliaria;
     private JTable tablaReservas;
@@ -29,14 +27,14 @@ public class PanelReservas extends JPanel {
         setLayout(new BorderLayout(10, 10));
         setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         
-        // Panel superior con título
+        
         JPanel panelTitulo = new JPanel();
         JLabel lblTitulo = new JLabel("GESTIÓN DE RESERVAS");
         lblTitulo.setFont(new Font("Arial", Font.BOLD, 18));
         panelTitulo.add(lblTitulo);
         add(panelTitulo, BorderLayout.NORTH);
         
-        // Panel central con tabla
+        
         String[] columnas = {"ID", "Propiedad", "Cliente", "Fecha", "Monto", "Estado"};
         modeloTabla = new DefaultTableModel(columnas, 0) {
             @Override
@@ -50,7 +48,7 @@ public class PanelReservas extends JPanel {
         JScrollPane scrollPane = new JScrollPane(tablaReservas);
         add(scrollPane, BorderLayout.CENTER);
         
-        // Panel inferior con botones
+        
         JPanel panelBotones = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 5));
         
         btnAgregar = new JButton("Agregar Reserva");
@@ -97,19 +95,19 @@ public class PanelReservas extends JPanel {
         JPanel panelFormulario = new JPanel(new GridLayout(5, 2, 5, 5));
         panelFormulario.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         
-        // ComboBox de propiedades disponibles
+        
         JComboBox<String> cmbPropiedad = new JComboBox<>();
         cmbPropiedad.addItem("Seleccione una propiedad");
         
-        // ESTRUCTURA REPETITIVA: for-each para llenar combo
+        
         for (Propiedad p : inmobiliaria.getPropiedades()) {
-            // ESTRUCTURA CONDICIONAL: if para filtrar disponibles
+            
             if (p.getEstado().equals("Disponible")) {
                 cmbPropiedad.addItem(p.getId() + " - " + p.getDireccion());
             }
         }
         
-        // ComboBox de clientes
+        
         JComboBox<String> cmbCliente = new JComboBox<>();
         cmbCliente.addItem("Seleccione un cliente");
         for (Cliente c : inmobiliaria.getClientes()) {
@@ -133,14 +131,14 @@ public class PanelReservas extends JPanel {
         
         dialogo.add(panelFormulario, BorderLayout.CENTER);
         
-        // Panel de botones
+        
         JPanel panelBotones = new JPanel(new FlowLayout(FlowLayout.CENTER));
         JButton btnGuardar = new JButton("Guardar");
         JButton btnCancelar = new JButton("Cancelar");
         
         btnGuardar.addActionListener(e -> {
             try {
-                // MANEJO DE EXCEPCIONES: try-catch para validar datos
+                
                 int indexPropiedad = cmbPropiedad.getSelectedIndex();
                 int indexCliente = cmbCliente.getSelectedIndex();
                 
@@ -148,11 +146,11 @@ public class PanelReservas extends JPanel {
                     throw new CampoVacioException("Debe seleccionar una propiedad y un cliente");
                 }
                 
-                // Extraer ID de la propiedad seleccionada
+                
                 String propSeleccionada = (String) cmbPropiedad.getSelectedItem();
                 int idPropiedad = Integer.parseInt(propSeleccionada.split(" - ")[0]);
                 
-                // Extraer ID del cliente seleccionado
+                
                 String clienteSeleccionado = (String) cmbCliente.getSelectedItem();
                 int idCliente = Integer.parseInt(clienteSeleccionado.split(" - ")[0]);
                 
@@ -161,7 +159,7 @@ public class PanelReservas extends JPanel {
                 
                 double monto = Double.parseDouble(txtMonto.getText().trim());
                 
-                // Parsear fecha
+                
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
                 LocalDate fecha = LocalDate.parse(txtFecha.getText().trim(), formatter);
                 
